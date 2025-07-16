@@ -4,11 +4,11 @@
 import type { Selection } from '$lib/models/selection';
 import { page } from '$app/state';
 
-$: winnerId = page.url.searchParams.get('=') || page.url.searchParams.get('winner');
-$: winner = JSON.parse(winnerId || '{}') as Selection;
+$: winnerParsed = page.url.searchParams.get('=') || page.url.searchParams.get('winner');
+$: winner = JSON.parse(winnerParsed || '{}') as Selection;
 </script>
 
-{#if winnerId}
+{#if winnerParsed}
 <h2>Winner Selected</h2>
 <div class="selection-card">
   {#if winner?.imagePath}
