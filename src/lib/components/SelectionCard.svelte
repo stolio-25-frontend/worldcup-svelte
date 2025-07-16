@@ -1,8 +1,15 @@
+<!-- 스크립트 선언부 -->
 <script lang="ts">
 'use strict';
 
 import type { Selection } from '$lib/models/selection';
 
+
+/**
+ * 아래의 Props 인터페이스, $bindable<Selection>() 등은 다음의 페이지를 참조할것:
+ * - https://svelte.dev/docs/svelte/$props#Type-safety
+ * - https://svelte.dev/docs/svelte/$bindable
+ */
 interface Props {
   selection: Selection;
 }
@@ -12,6 +19,7 @@ let {
 }: Props = $props();
 </script>
 
+<!-- 스타일 선언부 -->
 <style>
 .selection-card {
   display: flex;
@@ -20,7 +28,6 @@ let {
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 1rem;
@@ -38,6 +45,7 @@ let {
 }
 </style>
 
+<!-- HTML 템플릿 -->
 <div class="selection-card">
   {#if selection?.imagePath}
     <img src={selection.imagePath} alt={selection.name} class="selection-image" />

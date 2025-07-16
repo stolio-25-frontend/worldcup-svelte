@@ -3,7 +3,13 @@ import { Selecting } from '$lib/definitions/selecting';
 import { SelectionsRegistryCommons } from '$lib/definitions/selectionsRegistry';
 import type { Selection } from '$lib/models/selection';
 
+/**
+ * SelectionGame 클래스는 월드컵 게임의 핵심 로직을 구현하는 게임 매니저 역할을 수행한다.
+ */
 class SelectionGame {
+  /**
+   * 속성, getter, setter 선언부
+   */
   private _candidates: number;
   get totalCandidates(): number {
     return this._candidates;
@@ -31,6 +37,9 @@ class SelectionGame {
     return this._winner;
   }
 
+  /**
+   * 생성자
+   */
   constructor(
     selections: Selection[],
   ) {
@@ -53,6 +62,9 @@ class SelectionGame {
     this._renewCurrentCandidates();
   }
 
+  /**
+   * 메서드 선언부
+   */
   private _suffleQueue = () => {
     /*
      * 큐 셔플 방법으로 Fisher-Yates shuffle algorithm 사용:

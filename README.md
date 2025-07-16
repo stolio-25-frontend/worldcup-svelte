@@ -32,3 +32,13 @@
 <br />
 
 - HTML 코드에 바로 사용되는 문자열은 큰따옴표(`"`)로 감싸고, 스벨트 컴포넌트와 타입스크립트 코드에서 사용되는 문자열은 작은따옴표(`'`)로 감싼다.
+
+## 권장하는 읽는 순서
+
+1. [`src/routes/+page.svelte`](./src/routes/+page.svelte): 진입점
+2. [`src/lib/includes/GameView.svelte`](./src/lib/includes/GameView.svelte): 게임 화면 레이아웃(`routes/+page.svelte`에서 사용)
+3. [`src/lib/models/selectionGame.ts`](./src/lib/models/selectionGame.ts): 게임 매니저
+4. [`src/lib/definitions/selectionsRegistry.ts`](./src/lib/definitions/selectionsRegistry.ts), [`src/lib/models/selection.ts`](./src/lib/models/selection.ts): 데이터 파일 및 데이터 파일이 갖는 데이터 구조
+5. [`src/lib/components/SelectionView.svelte`](./src/lib/components/SelectionView.svelte): 게임 상에서의 선택 화면 레이아웃
+6. [`src/lib/components/SelectionCard.svelte`](./src/lib/components/SelectionCard.svelte): 선택 화면에서 각 선택 항목을 표시하는 컴포넌트
+7. [`src/routes/result/+page.svelte`](./src/routes/result/+page.svelte): 결과 화면

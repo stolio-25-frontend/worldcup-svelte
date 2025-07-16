@@ -1,3 +1,4 @@
+<!-- 스크립트 선언부 -->
 <script lang="ts">
 'use strict';
 
@@ -6,7 +7,6 @@ import { WinnerSelectedException } from '$lib/definitions/exceptions';
 import type { Selecting } from '$lib/definitions/selecting';
 import { SelectionsRegistryProgrammingLanguages } from '$lib/definitions/selectionsRegistry';
 import { SelectionGame } from '$lib/models/selectionGame';
-import type { Selection } from '$lib/models/selection';
 
 import { goto } from '$app/navigation';
 import { onMount } from 'svelte';
@@ -39,8 +39,18 @@ const onSelected = (selecting: Selecting) => {
 onMount(init);
 </script>
 
+<!-- 스타일 선언부 -->
+<!-- (없음) -->
+
+<!-- HTML 템플릿 -->
 <SelectionView
-  bind:selectionLeft={selectionLeft}
-  bind:selectionRight={selectionRight}
+  bind:selectionLeft={
+    selectionLeft!
+    /*
+     * bind: https://svelte.dev/docs/svelte/bind
+     * 변수명!: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+     */
+  }
+  bind:selectionRight={selectionRight!}
   onSelected={onSelected}
 />
